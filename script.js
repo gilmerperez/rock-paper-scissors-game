@@ -52,30 +52,29 @@ function playGame(playerChoice) {
   // Remove "greenText" and "redText" CSS classes
   resultDisplay.classList.remove("greenText", "redText");
 
+  // If the player wins
+  if (result === "YOU WIN!") {
+    // Update scores
+    playerScore++;
+    // Add "greenText" CSS class
+    resultDisplay.classList.add("greenText");
+    // If the player loses
+  } else if (result === "YOU LOSE!") {
+    // Update and display scores
+    computerScore++;
+    // Add "redText" CSS class
+    resultDisplay.classList.add("redText");
+  }
+
   // Update player and computer choice display
   playerDisplay.textContent = `PLAYER CHOSE: ${playerChoice}`;
   computerDisplay.textContent = `COMPUTER CHOSE: ${computerChoice}`;
-
   // Update result display
   resultDisplay.textContent = result;
 
   // Update player and computer score display
   playerScoreDisplay.textContent = `PLAYER SCORE: ${playerScore}`;
   computerScoreDisplay.textContent = `COMPUTER SCORE: ${computerScore}`;
-
-  // If the player wins
-  if (result === "YOU WIN!") {
-    // Add "greenText" CSS class
-    resultDisplay.classList.add("greenText");
-    // Update scores
-    playerScore++;
-    // If the player loses
-  } else if (result === "YOU LOSE!") {
-    // Add "redText" CSS class
-    resultDisplay.classList.add("redText");
-    // Update and display scores
-    computerScore++;
-  }
 }
 
 function restart() {
