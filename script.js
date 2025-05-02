@@ -49,33 +49,32 @@ function playGame(playerChoice) {
     result = "YOU LOSE!";
   }
 
-  // Update player and computer display
+  // Remove "greenText" and "redText" CSS classes
+  resultDisplay.classList.remove("greenText", "redText");
+
+  // Update player and computer choice display
   playerDisplay.textContent = `PLAYER CHOSE: ${playerChoice}`;
   computerDisplay.textContent = `COMPUTER CHOSE: ${computerChoice}`;
+
   // Update result display
   resultDisplay.textContent = result;
+
+  // Update player and computer score display
   playerScoreDisplay.textContent = `PLAYER SCORE: ${playerScore}`;
   computerScoreDisplay.textContent = `COMPUTER SCORE: ${computerScore}`;
 
-  // Remove CSS classes that add color to the result text
-  resultDisplay.classList.remove("greenText", "redText");
-
   // If the player wins
   if (result === "YOU WIN!") {
-    // Add CSS class that makes the text green
+    // Add "greenText" CSS class
     resultDisplay.classList.add("greenText");
-    // Update and display scores
+    // Update scores
     playerScore++;
-    playerScoreDisplay.textContent = `PLAYER SCORE: ${playerScore}`;
-    computerScoreDisplay.textContent = `COMPUTER SCORE: ${computerScore}`;
     // If the player loses
   } else if (result === "YOU LOSE!") {
-    // Add CSS class that makes the text red
+    // Add "redText" CSS class
     resultDisplay.classList.add("redText");
     // Update and display scores
     computerScore++;
-    playerScoreDisplay.textContent = `PLAYER SCORE: ${playerScore}`;
-    computerScoreDisplay.textContent = `COMPUTER SCORE: ${computerScore}`;
   }
 }
 
