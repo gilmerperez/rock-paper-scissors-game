@@ -17,18 +17,18 @@
     <button onclick="playGame('SCISSORS')">SCISSORS</button>
   </div>
 
-  <div class="choiceDisplayContainer">
+  <div id="choiceDisplayContainer" class="hidden">
     <div id="playerDisplay"></div>
     <div id="computerDisplay"></div>
     <div id="resultDisplay"></div>
   </div>
 
-  <div id="scoreDisplayContainer">
-    <div id="scoreDisplay">PLAYER SCORE: <span id="playerScoreDisplay">0</span></div>
-    <div id="scoreDisplay">COMPUTER SCORE: <span id="computerScoreDisplay">0</span></div>
+  <div id="scoreDisplayContainer" class="hidden">
+    <div id="scoreDisplay"><span id="playerScoreDisplay"></span></div>
+    <div id="scoreDisplay"><span id="computerScoreDisplay"></span></div>
   </div>
 
-  <button id="restartBtn" onclick="restart()">RESTART</button>
+  <button id="restartBtn" onclick="restart()" class="hidden">RESTART</button>
   <script src="script.js"></script>
 </body>
 

@@ -1,24 +1,36 @@
+// Choice display container
+const choiceDisplayContainer = document.getElementById("choiceDisplayContainer");
+// Player choice display
+const playerDisplay = document.getElementById("playerDisplay");
+// Computer choice display
+const computerDisplay = document.getElementById("computerDisplay");
+// Result display
+const resultDisplay = document.getElementById("resultDisplay");
+
+// Score display container
+const scoreDisplayContainer = document.getElementById("scoreDisplayContainer");
+// Player score display
+const playerScoreDisplay = document.getElementById("playerScoreDisplay");
+// Computer score display
+const computerScoreDisplay = document.getElementById("computerScoreDisplay");
+
+// Restart Button
+const restartBtn = document.getElementById("restartBtn");
+
 // Possible choices
 const choices = ["ROCK", "PAPER", "SCISSORS"];
 
-// Alert user of their choice
-const playerDisplay = document.getElementById("playerDisplay");
-// Alert user of computer choice
-const computerDisplay = document.getElementById("computerDisplay");
-// Display game result
-const resultDisplay = document.getElementById("resultDisplay");
-
-const scoreDisplayContainer = document.getElementById("scoreDisplayContainer");
-
-// Display score for user and computer
-const playerScoreDisplay = document.getElementById("playerScoreDisplay");
-const computerScoreDisplay = document.getElementById("computerScoreDisplay");
-
+// Game variables
 let result = "";
 let playerScore = 0;
 let computerScore = 0;
 
 function playGame(playerChoice) {
+  // Remove hidden CSS class to show game details
+  choiceDisplayContainer.classList.remove("hidden");
+  scoreDisplayContainer.classList.remove("hidden");
+  restartBtn.classList.remove("hidden");
+
   // Randomly generate a choice for the computer
   let computerChoice = choices[Math.floor(Math.random() * 3)];
 
@@ -35,44 +47,41 @@ function playGame(playerChoice) {
     result = "YOU LOSE!";
   }
 
-  // Update display to let user know their choice
+  // Update player and computer display
   playerDisplay.textContent = `PLAYER CHOSE: ${playerChoice}`;
-  // Update display to let user know the computer's choice
   computerDisplay.textContent = `COMPUTER CHOSE: ${computerChoice}`;
-  // Update display to let user know the result of the game
+  // Update  result display
   resultDisplay.textContent = result;
 
-  // Remove CSS classes that add color to the result text
+  // * Remove CSS classes that add color to the result text
   resultDisplay.classList.remove("greenText", "redText");
 
-  // If the user wins
+  // If the player wins
   if (result === "YOU WIN!") {
     // Add CSS class that makes the text green
     resultDisplay.classList.add("greenText");
-    // Update user score
+    // Update and display scores
     playerScore++;
-    // Display user's updated score
-    playerScoreDisplay.textContent = playerScore;
-    // If the user loses,
+    playerScoreDisplay.textContent = `PLAYER SCORE: ${playerScore}`;
+    computerScoreDisplay.textContent = `COMPUTER SCORE: ${computerScore}`;
+    // If the player loses
   } else if (result === "YOU LOSE!") {
     // Add CSS class that makes the text red
     resultDisplay.classList.add("redText");
-    // Update and display computer's score
+    // Update and display scores
     computerScore++;
-    // Display computer's updated score
-    computerScoreDisplay.textContent = computerScore;
+    playerScoreDisplay.textContent = `PLAYER SCORE: ${playerScore}`;
+    computerScoreDisplay.textContent = `COMPUTER SCORE: ${computerScore}`;
   }
 }
 
-// Function to reset all variables back to 0
 function restart() {
+  // Reset scores
   playerScore = 0;
   computerScore = 0;
-  playerScoreDisplay.textContent = playerScore;
-  computerScoreDisplay.textContent = computerScore;
 
-  resultDisplay.textContent = "";
-
-  playerDisplay.textContent = "";
-  computerDisplay.textContent = "";
+  // Add hidden CSS class to show game details
+  choiceDisplayContainer.classList.add("hidden");
+  scoreDisplayContainer.classList.add("hidden");
+  restartBtn.classList.add("hidden");
 }
