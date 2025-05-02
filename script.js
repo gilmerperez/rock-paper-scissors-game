@@ -1,5 +1,7 @@
 // Choice display container
-const choiceDisplayContainer = document.getElementById("choiceDisplayContainer");
+const choiceDisplayContainer = document.getElementById(
+  "choiceDisplayContainer"
+);
 // Player choice display
 const playerDisplay = document.getElementById("playerDisplay");
 // Computer choice display
@@ -50,10 +52,12 @@ function playGame(playerChoice) {
   // Update player and computer display
   playerDisplay.textContent = `PLAYER CHOSE: ${playerChoice}`;
   computerDisplay.textContent = `COMPUTER CHOSE: ${computerChoice}`;
-  // Update  result display
+  // Update result display
   resultDisplay.textContent = result;
+  playerScoreDisplay.textContent = `PLAYER SCORE: ${playerScore}`;
+  computerScoreDisplay.textContent = `COMPUTER SCORE: ${computerScore}`;
 
-  // * Remove CSS classes that add color to the result text
+  // Remove CSS classes that add color to the result text
   resultDisplay.classList.remove("greenText", "redText");
 
   // If the player wins
