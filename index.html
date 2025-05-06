@@ -12,26 +12,29 @@
 </head>
 
 <body>
-  <h1>ROCK | PAPER | SCISSORS</h1>
-
-  <div class="choicesContainer">
-    <button onclick="playGame('ROCK')">ROCK</button>
-    <button onclick="playGame('PAPER')">PAPER</button>
-    <button onclick="playGame('SCISSORS')">SCISSORS</button>
-  </div>
-
-  <div id="choiceDisplayContainer" class="hidden">
-    <div id="playerDisplay"></div>
-    <div id="computerDisplay"></div>
-    <div id="resultDisplay"></div>
-  </div>
-
-  <div id="scoreDisplayContainer" class="hidden">
-    <div id="scoreDisplay"><span id="playerScoreDisplay"></span></div>
-    <div id="scoreDisplay"><span id="computerScoreDisplay"></span></div>
-  </div>
-
-  <button id="restartBtn" onclick="restart()" class="hidden">RESTART</button>
+  <main>
+    <!-- Title -->
+    <h1>ROCK | PAPER | SCISSORS</h1>
+    <!-- Choice Buttons -->
+    <section class="choicesContainer">
+      <button data-choice="ROCK">ROCK</button>
+      <button data-choice="PAPER">PAPER</button>
+      <button data-choice="SCISSORS">SCISSORS</button>
+    </section>
+    <!-- Display Choices -->
+    <section id="choiceDisplayContainer" class="hidden">
+      <div id="playerDisplay"></div>
+      <div id="computerDisplay"></div>
+      <div id="resultDisplay"></div>
+    </section>
+    <!-- Display Score -->
+    <section id="scoreDisplayContainer" class="hidden">
+      <div class="scoreDisplay"><span id="playerScoreDisplay"></span></div>
+      <div class="scoreDisplay"><span id="computerScoreDisplay"></span></div>
+    </section>
+    <!-- Restart Button -->
+    <button id="restartBtn" class="hidden">RESTART</button>
+  </main>
   <script src="./assets/js/script.js"></script>
 </body>
 
