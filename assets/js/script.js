@@ -1,8 +1,6 @@
 // HTML DOM Elements
 const choiceButtons = document.querySelectorAll("[data-choice]");
-const choiceDisplayContainer = document.getElementById(
-  "choiceDisplayContainer"
-);
+const choiceDisplayContainer = document.getElementById("choiceDisplayContainer");
 const playerDisplay = document.getElementById("playerDisplay");
 const computerDisplay = document.getElementById("computerDisplay");
 const resultDisplay = document.getElementById("resultDisplay");
