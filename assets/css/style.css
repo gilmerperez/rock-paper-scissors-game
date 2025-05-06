@@ -1,99 +1,133 @@
-body {
+:root {
+  --blue: hsl(200, 100%, 50%);
+  --blue-light: hsl(200, 100%, 60%);
+  --green: hsl(120, 100%, 45%);
+  --red: rgb(240, 0, 0);
+  --dark: hsl(0, 0%, 15%);
+  --gray: hsl(0, 0%, 95%);
+  --font-main: "Montserrat", sans-serif;
+}
+
+* {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  box-sizing: border-box;
+  border: 1px solid red;
+}
+
+body {
+  padding: 2rem;
+  min-height: 100vh;
+  color: var(--dark);
   text-align: center;
-  font-family: "Montserrat", sans-serif;
-  background-color: hsl(0, 0%, 95%);
+  font-family: var(--font-main);
+  background-color: var(--gray);
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 
+main {
+  width: 100%;
+  max-width: 1000px;
+}
+
 h1 {
-  font-size: 5rem;
-  margin-bottom: 30px;
-  color: hsl(0, 0%, 15%);
+  margin-bottom: 2rem;
+  font-size: clamp(3.5rem, 5vw, 5rem);
   text-shadow: 3px 3px 3px hsl(0, 0%, 50%);
+}
+
+.choicesContainer {
+  gap: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
   margin: 15px;
-  padding: 15px;
+  padding: 1rem;
   color: white;
   cursor: pointer;
-  font-size: 2rem;
   min-width: 250px;
   font-weight: 600;
+  font-size: 1.75rem;
   border-radius: 5px;
-  transition: 0.3s ease;
-  border: 2px solid hsl(0, 0%, 20%);
-  background-color: hsl(200, 100%, 50%);
-  box-shadow: 5px 5px 3px hsla(0, 0%, 0%, 0.5);
+  transition: all 0.3s ease;
+  border: 2px solid var(--dark);
+  background-color: var(--blue);
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
 }
 
 button:hover {
-  min-width: 280px;
-  background-color: hsl(200, 100%, 60%);
+  transform: scale(1.05);
+  background-color: var(--blue-light);
   box-shadow: 8px 8px 8px hsla(0, 0%, 0%, 0.5);
 }
 
-#choiceDisplayContainer {
-  margin: 30px;
-  font-size: 2rem;
+#choiceDisplayContainer,
+#scoreDisplayContainer {
   font-weight: 600;
+  margin-top: 1.5rem;
+  font-size: clamp(1.25rem, 2vw, 2rem);
 }
 
 #playerDisplay {
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 
 #resultDisplay {
-  font-size: 3rem;
-  margin-top: 30px;
+  margin-top: 1rem;
   font-weight: 900;
-}
-
-#scoreDisplayContainer {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-#scoreDisplayContainer > div:has(#playerScoreDisplay) {
-  margin-bottom: 10px;
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
 .greenText,
 #playerScoreDisplay {
-  color: hsl(120, 100%, 45%);
+  color: var(--green);
 }
 
 .redText,
 #computerScoreDisplay {
-  color: rgb(240, 0, 0);
+  color: var(--red);
 }
 
 #restartBtn {
   cursor: pointer;
   min-width: 160px;
-  margin-top: 30px;
+  margin-top: 2rem;
   font-weight: 500;
   font-size: 1.5rem;
   border-radius: 5px;
   transition: 0.5s ease;
-  color: hsl(0, 0%, 15%);
+  color: var(--dark);
   background-color: white;
   border: 2px solid hsl(0, 0%, 25%);
   box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.5);
 }
 
 #restartBtn:hover {
-  min-width: 180px;
-  background-color: hsl(0, 0%, 95%);
+  transform: scale(1.05);
+  background-color: var(--gray);
   box-shadow: 8px 8px 10px hsla(0, 0%, 0%, 0.5);
 }
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 480px) {
+  button {
+    min-width: 90%;
+    font-size: 1.5rem;
+  }
+
+  .choicesContainer {
+    align-items: center;
+    flex-direction: column;
+  }
 }
