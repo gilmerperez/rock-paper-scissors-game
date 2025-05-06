@@ -1,31 +1,22 @@
-// Choice display container
+// HTML DOM Elements
+const choiceButtons = document.querySelectorAll("[data-choice]");
 const choiceDisplayContainer = document.getElementById(
   "choiceDisplayContainer"
 );
-// Player choice display
 const playerDisplay = document.getElementById("playerDisplay");
-// Computer choice display
 const computerDisplay = document.getElementById("computerDisplay");
-// Result display
 const resultDisplay = document.getElementById("resultDisplay");
-
-// Score display container
 const scoreDisplayContainer = document.getElementById("scoreDisplayContainer");
-// Player score display
 const playerScoreDisplay = document.getElementById("playerScoreDisplay");
-// Computer score display
 const computerScoreDisplay = document.getElementById("computerScoreDisplay");
-
-// Restart Button
 const restartBtn = document.getElementById("restartBtn");
+
+// Game variables
+let playerScore = 0;
+let computerScore = 0;
 
 // Possible choices
 const choices = ["ROCK", "PAPER", "SCISSORS"];
-
-// Game variables
-let result = "";
-let playerScore = 0;
-let computerScore = 0;
 
 function playGame(playerChoice) {
   // Remove hidden CSS class to show game details
@@ -33,36 +24,26 @@ function playGame(playerChoice) {
   scoreDisplayContainer.classList.remove("hidden");
   restartBtn.classList.remove("hidden");
 
-  // Randomly generate a choice for the computer
-  let computerChoice = choices[Math.floor(Math.random() * 3)];
-
-  // Game logic
-  if (playerChoice === computerChoice) {
-    result = "TIE!";
-  } else if (playerChoice === "ROCK" && computerChoice === "SCISSORS") {
-    result = "YOU WIN!";
-  } else if (playerChoice === "PAPER" && computerChoice === "ROCK") {
-    result = "YOU WIN!";
-  } else if (playerChoice === "SCISSORS" && computerChoice === "PAPER") {
-    result = "YOU WIN!";
-  } else {
-    result = "YOU LOSE!";
-  }
-
-  // Remove "greenText" and "redText" CSS classes
+  // Remove any previous styling from result text
   resultDisplay.classList.remove("greenText", "redText");
 
-  // If the player wins
+  // Randomly generate a choice for the computer
+  const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+  // Determine the result of the round based on the choices
+  let result = getResult(playerChoice, computerChoice);
+
+  // If player wins
   if (result === "YOU WIN!") {
-    // Update scores
+    // Update score
     playerScore++;
-    // Add "greenText" CSS class
+    // Add CSS classes based on result
     resultDisplay.classList.add("greenText");
-    // If the player loses
+    // If player loses
   } else if (result === "YOU LOSE!") {
-    // Update and display scores
+    // Update score
     computerScore++;
-    // Add "redText" CSS class
+    // Add CSS classes based on result
     resultDisplay.classList.add("redText");
   }
 
@@ -71,19 +52,45 @@ function playGame(playerChoice) {
   computerDisplay.textContent = `COMPUTER CHOSE: ${computerChoice}`;
   // Update result display
   resultDisplay.textContent = result;
-
   // Update player and computer score display
   playerScoreDisplay.textContent = `PLAYER SCORE: ${playerScore}`;
   computerScoreDisplay.textContent = `COMPUTER SCORE: ${computerScore}`;
+}
+
+function getResult(player, computer) {
+  // If game result is a tie
+  if (player === computer) {
+    return "TIE!";
+    // If player wins
+  } else if (
+    (player === "ROCK" && computer === "SCISSORS") ||
+    (player === "PAPER" && computer === "ROCK") ||
+    (player === "SCISSORS" && computer === "PAPER")
+  ) {
+    return "YOU WIN!";
+    // If player loses
+  } else {
+    return "YOU LOSE!";
+  }
 }
 
 function restart() {
   // Reset scores
   playerScore = 0;
   computerScore = 0;
-
-  // Add hidden CSS class to show game details
+  // Add CSS class to hide game details
   choiceDisplayContainer.classList.add("hidden");
   scoreDisplayContainer.classList.add("hidden");
   restartBtn.classList.add("hidden");
 }
+
+// When the player clicks any of game options
+choiceButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // playGame() is called with their choice
+    playGame(button.dataset.choice);
+  });
+});
+
+// When the player clicks the restart button, the restart function is called
+restartBtn.addEventListener("click", restart);
