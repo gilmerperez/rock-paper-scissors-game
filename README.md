@@ -17,7 +17,7 @@ This project reinforces essential front-end skills such as DOM manipulation, con
 
 The following image shows the web application's appearance:
 
-![Rock Paper Scissors Game](./assets/images/rock-paper-scissors-game.jpg/)
+![Rock Paper Scissors Game](./assets/images/sc.jpg/)
 
 ## Instructions
 

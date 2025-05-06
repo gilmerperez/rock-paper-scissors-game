@@ -44,7 +44,6 @@ function playGame(playerChoice) {
     // Add CSS classes based on result
     resultDisplay.classList.add("redText");
   }
-
   // Update player and computer choice display
   playerDisplay.textContent = `PLAYER CHOSE: ${playerChoice}`;
   computerDisplay.textContent = `COMPUTER CHOSE: ${computerChoice}`;
