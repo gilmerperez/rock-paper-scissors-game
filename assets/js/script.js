@@ -1,5 +1,6 @@
 // HTML DOM Elements
 const choiceButtons = document.querySelectorAll("[data-choice]");
+const displayContainer = document.getElementById("displayContainer");
 const choiceDisplayContainer = document.getElementById("choiceDisplayContainer");
 const playerDisplay = document.getElementById("playerDisplay");
 const computerDisplay = document.getElementById("computerDisplay");
@@ -18,6 +19,7 @@ const choices = ["ROCK", "PAPER", "SCISSORS"];
 
 function playGame(playerChoice) {
   // Remove hidden CSS class to show game details
+  displayContainer.classList.remove("hidden");
   choiceDisplayContainer.classList.remove("hidden");
   scoreDisplayContainer.classList.remove("hidden");
   restartBtn.classList.remove("hidden");
@@ -76,6 +78,7 @@ function restart() {
   playerScore = 0;
   computerScore = 0;
   // Add CSS class to hide game details
+  displayContainer.classList.add("hidden");
   choiceDisplayContainer.classList.add("hidden");
   scoreDisplayContainer.classList.add("hidden");
   restartBtn.classList.add("hidden");

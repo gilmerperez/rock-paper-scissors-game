@@ -21,17 +21,19 @@
       <button data-choice="PAPER">PAPER</button>
       <button data-choice="SCISSORS">SCISSORS</button>
     </section>
-    <!-- Display Choices -->
-    <section id="choiceDisplayContainer" class="hidden">
-      <div id="playerDisplay"></div>
-      <div id="computerDisplay"></div>
-      <div id="resultDisplay"></div>
-    </section>
-    <!-- Display Score -->
-    <section id="scoreDisplayContainer" class="hidden">
-      <div class="scoreDisplay"><span id="playerScoreDisplay"></span></div>
-      <div class="scoreDisplay"><span id="computerScoreDisplay"></span></div>
-    </section>
+    <div id="displayContainer" class="hidden">
+      <!-- Display Choices -->
+      <section id="choiceDisplayContainer" class="hidden">
+        <div id="playerDisplay"></div>
+        <div id="computerDisplay"></div>
+        <div id="resultDisplay"></div>
+      </section>
+      <!-- Display Score -->
+      <section id="scoreDisplayContainer" class="hidden">
+        <div class="scoreDisplay"><span id="playerScoreDisplay"></span></div>
+        <div class="scoreDisplay"><span id="computerScoreDisplay"></span></div>
+      </section>
+    </div>
     <!-- Restart Button -->
     <button id="restartBtn" class="hidden">RESTART</button>
   </main>
