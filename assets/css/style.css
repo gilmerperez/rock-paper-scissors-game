@@ -1,29 +1,18 @@
-:root {
-  --red: rgb(240, 0, 0);
-  --dark: hsl(0, 0%, 15%);
-  --gray: hsl(0, 0%, 95%);
-  --blue: hsl(200, 100%, 50%);
-  --green: hsl(120, 100%, 45%);
-  --light-blue: hsl(200, 100%, 60%);
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid red; */
 }
 
 body {
   padding: 2rem;
   min-height: 100vh;
-  color: hsl(0, 0%, 15%);
   text-align: center;
+  color: hsl(0, 0%, 15%);
   background-color: hsl(0, 0%, 95%);
   font-family: "Montserrat", sans-serif;
   display: flex;
   align-items: center;
-  /* flex-direction: column; */
   justify-content: center;
 }
 
@@ -39,12 +28,7 @@ h1 {
 }
 
 .choicesContainer {
-  /* gap: 1rem; */
   margin-bottom: 2rem;
-  /* display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center; */
 }
 
 button {
@@ -69,20 +53,13 @@ button:hover {
 }
 
 #displayContainer {
-  padding: 1rem;
   width: 60%;
+  padding: 1rem;
   margin: 0 auto;
-  /* min-width: 80%; */
-  border: 1px solid black;
   border-radius: 8px;
+  border: 1px solid black;
   background-color: hsl(0, 0%, 90%);
 }
-
-/* #choiceDisplayContainer,
-#scoreDisplayContainer {
-  font-weight: 600;
-  font-size: clamp(1.25rem, 2vw, 2rem);
-} */
 
 #displayContainer {
   font-weight: 600;
@@ -113,16 +90,16 @@ button:hover {
 }
 
 #restartBtn {
+  margin: 2rem;
   cursor: pointer;
   min-width: 160px;
-  margin: 2rem;
   font-weight: 500;
   font-size: 1.5rem;
   border-radius: 5px;
   transition: 0.5s ease;
   color: hsl(0, 0%, 15%);
-  background-color: white;
   border: 1px solid black;
+  background-color: white;
   box-shadow: 5px 5px 3px hsla(0, 0%, 0%, 0.5);
 }
 
